@@ -14,11 +14,11 @@ class Controller {
         `/search/users?q=${req.params.userName}`
       );
       res.status(302).json(data);
+      return data;
     } catch (err) {
       next(err);
     }
   }
-
   static async findStrarredList(req, res, next) {
     try {
       const { data } = await goAxios.get(`/users/${req.params.user}/starred`);

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container-sm-12">
+        <div class="col-12" id="colors"">
+            <div class="row ml-2 pt-2 pb-2">
+                <h3>Hacktivgit</h3>
+            </div>
+        </div>
+
+
+
+    <div class="container-sm-12 d-flex">
+        <div class="bg-light border-right col-sm-4 scrollable-menu" id="sidebar">
+
+            Find users
+
+                <input type="text" id="name" placeholder="name" autocomplete ="off">
+                <button  class="btn btn-primary "type="button" onclick="getIt()">  find </button>
+
+            <div id="listuser">
+              <ul id="theuser"></ul>
+            </div>
+        </div>
+
+
+
+
+
+
+        <!-- <div class="col-sm-4" id="page-content">
+            <h3> My Starred Repositories </h3>
+                Unstar Repo
+                <form method="post" id="unstar-repo-form">
+                        <input type="text" id="userName" placeholder="github username" autocomplete ="off">
+                        <input type="text" id="repoName" placeholder="repository name" autocomplete ="off">
+                        <input type="submit">
+                </form>
+                <br>
+                Search Repo
+                <input type="text" id="name" placeholder="repo name" onchange="repoChange(this.value)">
+                <form method="get" id="search-starred-repo">
+                </form>
+                <ul id="starredrepo-list"> </ul>
+        </div> -->
+
+
+        <div class="bg-light border-right col-sm-4 scrollable-menu" id="sidebar">
+
+            create repo
+            <form method="post" id="repos">
+                <input type="text" id="repo" placeholder="repo" autocomplete ="off" name="repoName">
+                <button  class="btn btn-primary "type="submit" > search </button>
+            </form>
+            <div id="listrepo">
+              <ul id="therepo"></ul>
+            </div>
+        </div>
+        <!-- <div class="col-sm-4" id="page-content" style="background-color:#aef5ff">
+                <h3> Find Other Repositories </h3>
+
+                Type His/Her Github User Name here:
+                <input type="text" id="gitUsername" placeholder="github username" onchange="findOtherRepo(this.value)">
+                <form method="get" id="search-starred-repo">
+                </form>
+                <br>
+                <h5> Repository Owner Name: <p id="otherrepo-owner"> </p></h5>
+                <h5> Repository List: </h5>
+                <ul id="otherrepo-list"> </ul>
+        </div> -->
+    </div>
+
+
+
+</body>
+<script src= "./main.js"></script>
+
+</html>
