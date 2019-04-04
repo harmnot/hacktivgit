@@ -42,3 +42,27 @@ $("#repos").submit(async function() {
     console.log(e);
   }
 });
+
+const star = async () => {
+  try {
+    const user = document.getElementById("starrepo").value;
+    const data = await fetch(`http://localhost:4000/starred/${user}`);
+    const list = await data.json();
+    displayList(list);
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+const displayList = list => {
+  let putTextData = document.querySelector("#starredRepo");
+  putTextData.innerHTML = "";
+  for ({ name, ...rest } of list) {
+    putTextData.insertAdjacentHTML(
+      "beforeend",
+      `<li class="flex-item">
+     <h3> <a href="${rest.html_url}" class='link' id='link2'> ${name} </a> </h3>
+   </li>`
+    );
+  }
+};
