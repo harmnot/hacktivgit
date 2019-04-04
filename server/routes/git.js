@@ -9,6 +9,7 @@ router.get("/starred/:user", Controller.findStrarredList);
 router.post("/addrepo", Controller.createRepo);
 router.delete("/deleterepo/:owner/:repoName", Controller.destroyRepo);
 router.delete("/unstar/:owner/:repoName", Controller.destroyStarredRepo);
+router.post("/logingoogle", Controller.sigin);
 
 router.use((err, req, res, next) => {
   if (err) {

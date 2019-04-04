@@ -2,13 +2,13 @@
   "name": "client",
   "version": "1.0.0",
   "description": "for the client",
-  "main": "index.html",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Muhammad",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "*"
   }
 }

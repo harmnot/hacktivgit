@@ -1,3 +1,10 @@
+if (localStorage.getItem("token")) {
+  document.querySelector("#main_content").style.display = "block";
+} else {
+  document.querySelector("#sigout").style.display = "none";
+  document.querySelector("#main_content").style.display = "none";
+}
+
 const getIt = async () => {
   try {
     const user = document.getElementById("name").value;
@@ -66,3 +73,42 @@ const displayList = list => {
     );
   }
 };
+
+async function onSignIn(googleUser) {
+  const profile = googleUser.getBasicProfile();
+  console.log("ID: " + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log("Name: " + profile.getName());
+  console.log("Image URL: " + profile.getImageUrl());
+  console.log("Email: " + profile.getEmail()); // This is null if the 'email' scope is not present.
+  const id_token = googleUser.getAuthResponse().id_token;
+
+  const giveToken = await fetch(`http://localhost:4000/logingoogle`, {
+    method: "POST",
+    body: JSON.stringify({ idToken: id_token }),
+    headers: new Headers({
+      "Content-Type": "application/json"
+    })
+  });
+
+  document.querySelector("#main_content").style.display = "block";
+
+  const receive = await giveToken.json();
+  localStorage.setItem("token", receive);
+  if (localStorage.getItem("token")) {
+    document.querySelector(".g-signin2").style.display = "none";
+    document.querySelector("#sigout").style.display = "block";
+  } else {
+    document.querySelector("#main_content").style.display = "block";
+  }
+  // console.log(receive, "ini token")
+}
+
+function signOut() {
+  const auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function() {
+    localStorage.removeItem("token");
+    document.querySelector("#sigout").style.display = "none";
+    document.querySelector("#main_content").style.display = "none";
+    document.querySelector(".g-signin2").style.display = "block";
+  });
+}
